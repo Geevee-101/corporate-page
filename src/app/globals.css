@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-5xl font-semibold;
+  }
+  h2 {
+    @apply text-2xl;
+  }
+  h3 {
+    @apply text-xl;
+  }
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  position: unset !important;
+  margin: 0 !important;
+}
+
+.swiper-pagination {
+  position: unset !important;
+  margin-top: 20px !important;
+}
+.swiper-pagination-bullet {
+  width: 10px !important;
+  height: 10px !important;
+  margin: 0 10px 0 10px !important;
+  border-radius: unset !important;
+  background-color: #6b7280 !important;
+}
+.swiper-pagination-bullet-active {
+  background-color: #fb923c !important;
+}
+
+.swiper-button-prev::after {
+  content: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' fill='none' viewBox='0 0 24 24'><path stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 12h14M5 12l6-6m-6 6 6 6'/></svg>") !important;
+}
+
+.swiper-button-next::after {
+  content: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' fill='none' viewBox='0 0 24 24'><path stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 12h14m0 0-6-6m6 6-6 6'/></svg>") !important;
+}
