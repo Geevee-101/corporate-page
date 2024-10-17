@@ -15,8 +15,8 @@ export default function JobCard({
 }) {
   return (
     <Link href={linkPath}>
-      <div className="group text-white bg-primary transition duration-300 ease-in-out hover:text-primary hover:bg-slate-100">
-        <div className="p-5">
+      <div className="group text-white bg-primary transition duration-500 ease-in-out hover:text-primary hover:bg-slate-100">
+        <div className="p-7">
           <h3 className="font-semibold">{title}</h3>
           <p className="mt-2 uppercase font-semibold">
             {salary} | {location}
@@ -24,7 +24,7 @@ export default function JobCard({
           <p className="mt-2">{description}</p>
         </div>
         <div className="flex justify-end">
-          <div className="px-6 py-3 uppercase text-black bg-secondayLight transition duration-300 ease-in-out group-hover:text-white group-hover:bg-primary">
+          <div className="px-6 py-3 uppercase text-black bg-secondayLight transition duration-500 ease-in-out group-hover:text-white group-hover:bg-primary">
             Apply
           </div>
         </div>

@@ -12,7 +12,7 @@ export default function HeroCard({
       href={linkPath}
       className="group flex flex-col items-center w-fit gap-2 mx-auto"
     >
-      <div className="border rounded-full p-6 transition duration-300 ease-in-out group-hover:bg-white">
+      <div className="border rounded-full p-6 transition duration-500 ease-in-out group-hover:bg-white">
         <svg
           width="40"
           height="40"
