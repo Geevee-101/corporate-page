@@ -10,7 +10,7 @@ export default function NavbarButton({
   return (
     <Link
       href={linkPath}
-      className="h-fit px-6 py-3 uppercase text-white bg-orange-400 hover:text-black hover:bg-white"
+      className="h-fit px-3 lg:px-6 py-3 uppercase text-white bg-orange-400 hover:text-black hover:bg-white"
     >
       {children}
     </Link>

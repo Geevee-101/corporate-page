@@ -15,7 +15,10 @@ export default function FooterLink({
   details: string;
 }) {
   return (
-    <Link href={linkPath} className="grid grid-rows-[40px_auto] gap-1">
+    <Link
+      href={linkPath}
+      className="grid grid-cols-[40px_auto] md:grid-cols-1 md:grid-rows-[40px_auto] gap-5 md:gap-1 justify-center"
+    >
       <Image
         src={linkIcon}
         width={40}
@@ -23,7 +26,7 @@ export default function FooterLink({
         alt={linkIconAlt}
         className="mx-auto"
       />
-      <div className="text-center w-60">
+      <div className="md:text-center w-60">
         <h4 className="uppercase">{title}</h4>
         <p>{details}</p>
       </div>

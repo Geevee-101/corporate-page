@@ -27,33 +27,51 @@ import JobCard from "@/components/job-card";
 import GeneralButton from "@/components/general-button";
 import InsightCard from "@/components/insight-card";
 import FooterLink from "@/components/footer-link";
+import { useState } from "react";
 
 export default function Home() {
+  const [menuIsOpen, setIsOpen] = useState(false);
+
   return (
     <>
-      <section
-        className="bg-[url('./assets/images/andrea-natali-otjiUhq5Zcw-unsplash.jpg')] bg-no-repeat bg-cover bg-center relative z-10 before:content-['']
-            before:absolute
-            before:inset-0
-            before:bg-gray-900/50
-            before:z-[-5]"
-      >
-        <nav className="container mx-auto flex justify-between">
+      <section className="bg-[url('./assets/images/andrea-natali-otjiUhq5Zcw-unsplash.jpg')] bg-no-repeat bg-cover bg-center relative z-10">
+        <div className="absolute inset-0 bg-gray-900/50 z-[-5]"></div>
+        <nav className="container mx-auto flex justify-between h-20">
           <div className="flex items-center border-t-8 border-transparent">
             <Link href="" className="text-4xl text-white font-extrabold">
               volcanic
             </Link>
           </div>
-          <div className="flex gap-10">
-            <ul className="flex gap-5 h-20 uppercase text-white">
-              <NavbarLink linkPath="">Jobs</NavbarLink>
-              <NavbarLink linkPath="">About</NavbarLink>
-              <NavbarLink linkPath="">Candidates</NavbarLink>
-              <NavbarLink linkPath="">Clients</NavbarLink>
-              <NavbarLink linkPath="">Join Us</NavbarLink>
-              <NavbarLink linkPath="">Insights</NavbarLink>
-              <NavbarLink linkPath="">Contact Us</NavbarLink>
-            </ul>
+          <div className="flex gap-2 xl:gap-14">
+            <div className="relative h-full py-3 xl:py-0 border-t-8 xl:border-t-0 border-transparent">
+              <button
+                onClick={() => setIsOpen((open) => !open)}
+                className="xl:hidden flex items-center h-full px-3"
+              >
+                <svg width="30" height="30" fill="none" viewBox="0 0 20 20">
+                  <path
+                    fill="white"
+                    fill-rule="evenodd"
+                    d="M19 4a1 1 0 0 1-1 1H2a1 1 0 0 1 0-2h16a1 1 0 0 1 1 1zm0 6a1 1 0 0 1-1 1H2a1 1 0 1 1 0-2h16a1 1 0 0 1 1 1zm-1 7a1 1 0 1 0 0-2H2a1 1 0 1 0 0 2h16z"
+                  />
+                </svg>
+              </button>
+              <div
+                className={
+                  menuIsOpen ? "block xl:h-full" : "hidden xl:block xl:h-full"
+                }
+              >
+                <ul className="absolute xl:static right-0 flex flex-col xl:flex-row xl:h-full xl:gap-6 uppercase text-black xl:text-white bg-white xl:bg-transparent">
+                  <NavbarLink linkPath="">Jobs</NavbarLink>
+                  <NavbarLink linkPath="">About</NavbarLink>
+                  <NavbarLink linkPath="">Candidates</NavbarLink>
+                  <NavbarLink linkPath="">Clients</NavbarLink>
+                  <NavbarLink linkPath="">Join Us</NavbarLink>
+                  <NavbarLink linkPath="">Insights</NavbarLink>
+                  <NavbarLink linkPath="">Contact Us</NavbarLink>
+                </ul>
+              </div>
+            </div>
             <div className="flex items-center border-t-8 border-transparent">
               <NavbarButton linkPath="">Login</NavbarButton>
               <NavbarButton linkPath="">Register</NavbarButton>
@@ -65,7 +83,7 @@ export default function Home() {
             <h1 className="text-center text-white max-w-[600px] mx-auto">
               Accusantium doloremque quae ab illo
             </h1>
-            <form className="grid grid-cols-[2fr_2fr_1fr] px-40 py-10 gap-3">
+            <form className="grid grid-rows-3 lg:grid-rows-1 lg:grid-cols-[2fr_2fr_1fr] px-0 md:px-20 lg:px-40 py-11 gap-3">
               <input
                 type="text"
                 name="keyword"
@@ -94,7 +112,15 @@ export default function Home() {
               modules={[Navigation]}
               spaceBetween={0}
               loop={true}
-              slidesPerView={5}
+              slidesPerView={2}
+              breakpoints={{
+                768: {
+                  slidesPerView: 3,
+                },
+                1024: {
+                  slidesPerView: 5,
+                },
+              }}
               navigation={{
                 nextEl: ".swiper-button-next",
                 prevEl: ".swiper-button-prev",
@@ -131,7 +157,15 @@ export default function Home() {
         <Swiper
           modules={[Pagination]}
           spaceBetween={10}
-          slidesPerView={5}
+          slidesPerView={2}
+          breakpoints={{
+            768: {
+              slidesPerView: 3,
+            },
+            1024: {
+              slidesPerView: 5,
+            },
+          }}
           pagination={{
             clickable: true,
             el: ".swiper-pagination",
@@ -205,13 +239,8 @@ export default function Home() {
         </Swiper>
         <div className="swiper-pagination"></div>
       </section>
-      <section
-        className="bg-[url('./assets/images/nathan-dumlao-r-KfktlyBL0-unsplash.jpg')] bg-no-repeat bg-cover bg-center relative z-10 before:content-['']
-            before:absolute
-            before:inset-0
-            before:bg-gray-900/50
-            before:z-[-5]"
-      >
+      <section className="bg-[url('./assets/images/nathan-dumlao-r-KfktlyBL0-unsplash.jpg')] bg-no-repeat bg-cover bg-center relative z-10">
+        <div className="absolute inset-0 bg-gray-900/50 z-[-5]"></div>
         <div className="container mx-auto flex flex-col items-center py-16 text-white">
           <h2>About Us</h2>
           <p className="py-5">
@@ -222,7 +251,7 @@ export default function Home() {
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
             pariatur.
           </p>
-          <div className="flex gap-20 py-8">
+          <div className="grid md:grid-cols-3 gap-10 lg:gap-20 px-4 md:px-0 py-8">
             <div>
               <h3>2000 +</h3>
               <p>
@@ -274,10 +303,10 @@ export default function Home() {
         </div>
       </section>
       <section className="container mx-auto">
-        <div className="grid grid-cols-2 overflow-hidden">
-          <div className="flex flex-col justify-center items-center px-10 text-white bg-primary">
+        <div className="grid md:grid-cols-2 overflow-hidden">
+          <div className="flex flex-col md:justify-center items-center p-5 lg:px-10 text-white bg-primary">
             <h2>Work for us</h2>
-            <p className="m-8">
+            <p className="my-8 md:m-8">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -285,18 +314,16 @@ export default function Home() {
             </p>
             <GeneralButton label="learn more" linkPath="" />
           </div>
-          <div className="max-h-80">
-            <Image
-              src={imgWorkForUs}
-              alt="picture of working with laptop"
-              className="w-full h-full object-cover"
-            />
-          </div>
+          <Image
+            src={imgWorkForUs}
+            alt="picture of working with laptop"
+            className="w-full h-full object-cover"
+          />
         </div>
       </section>
       <section className="container mx-auto flex flex-col items-center py-16">
         <h2>Latest Insights</h2>
-        <div className="grid grid-cols-4 mt-8 gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-4 mt-8 gap-3">
           <InsightCard
             linkPath=""
             title="Ut labore et dolore magna"
@@ -324,10 +351,10 @@ export default function Home() {
         </div>
       </section>
       <footer className="text-white bg-gray-700">
-        <div className="container mx-auto grid grid-cols-[auto_auto] py-16">
-          <div className="grid grid-rows-[40px_auto] border-r-2 border-secondaryDark">
+        <div className="container mx-auto grid grid-rows-[auto_auto] lg:grid-cols-[auto_auto] py-16">
+          <div className="grid grid-rows-[40px_auto] pb-8 lg:pb-0 border-b-2 lg:border-b-0 lg:border-r-2 border-secondaryDark">
             <div></div>
-            <div className="flex gap-4">
+            <div className="flex gap-4 justify-center lg:justify-start">
               <h4>Get Social</h4>
               <div className="flex gap-2">
                 <Link href="">
@@ -363,7 +390,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="flex justify-between">
+          <div className="flex flex-col md:flex-row pt-8 lg:pt-0 gap-3 md:gap-0 md:justify-between">
             <FooterLink
               linkPath=""
               linkIcon={iconMail}
